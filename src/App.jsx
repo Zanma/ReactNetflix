@@ -1,14 +1,15 @@
 import "./App.css";
 
-function WebTitle() {
-  return <h1>Netflix Clone</h1>;
+function WebTitle({ title }) {
+  return <h1>{title}</h1>;
 }
 
-function Articles() {
+function Articles({ title, description }) {
+  console.log(title, description);
   return (
     <article>
-      <h3>Artikel Pertama</h3>
-      <p>Ini adalah artikel pertama</p>
+      <h3>{title}</h3>
+      <p>{description}</p>
     </article>
   );
 }
@@ -16,8 +17,11 @@ function Articles() {
 function App() {
   return (
     <main>
-      <WebTitle />
-      <Articles />
+      <WebTitle title="Netflix" />
+      <Articles
+        title="Artikel Pertama"
+        description="Ini adalah artikel pertama"
+      />
     </main>
   );
 }
