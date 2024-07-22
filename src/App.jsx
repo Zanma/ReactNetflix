@@ -1,7 +1,20 @@
 import "./App.css";
+import { useState } from "react";
 
-function WebTitle({ title }) {
-  return <h1>{title}</h1>;
+function WebTitle({ titleProp, description }) {
+  const [title, setTitle] = useState(titleProp);
+
+  function changeTitle() {
+    setTitle("Netflix 2.0");
+  }
+
+  return (
+    <div>
+      <h1>{title}</h1>
+      <p>{description}</p>
+      <button onClick={changeTitle}>Ganti Judul</button>
+    </div>
+  );
 }
 
 function Articles({ title, description }) {
@@ -17,7 +30,7 @@ function Articles({ title, description }) {
 function App() {
   return (
     <main>
-      <WebTitle title="Netflix" />
+      <WebTitle titleProp="Netflix" description="Ini adalah website netflix" />
       <Articles
         title="Artikel Pertama"
         description="Ini adalah artikel pertama"
