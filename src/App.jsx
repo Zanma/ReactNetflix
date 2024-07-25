@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+import { getArticle } from "./Utils/getArticle";
 
 function WebTitle({ titleProp, description }) {
   const [title, setTitle] = useState(titleProp);
@@ -31,9 +32,7 @@ function App() {
   const [counter, setCounter] = useState(1);
 
   useEffect(() => {
-    fetch("https://dummyjson.com/posts/" + counter)
-      .then((res) => res.json())
-      .then((data) => setArticle(data));
+    getArticle(counter).then((data) => setArticle(data));
   }, [counter]);
 
   function nextArticle() {
@@ -44,10 +43,19 @@ function App() {
     setCounter(counter - 1);
   }
 
+  function LimitArticle() {
+    return (
+      <div>
+        <h3>Ini adalah limit article !</h3>
+      </div>
+    );
+  }
+
   return (
     <main>
       <WebTitle titleProp="Netflix" description="Ini adalah website netflix" />
       <Articles title={article.title} description={article.body} />
+      {counter === 4 && <LimitArticle />}
       <button onClick={prevArticle}>Next Article</button>
       {counter}
       <button onClick={nextArticle}>Next Article</button>
