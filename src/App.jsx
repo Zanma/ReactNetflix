@@ -16,7 +16,8 @@ function App() {
     setCounter(counter + 1);
   }
 
-  function prevArticle() {
+  function prevArticle(props) {
+    console.log(props);
     setCounter(counter - 1);
   }
 
@@ -32,10 +33,10 @@ function App() {
     <main>
       <WebTitle titleProp="Netflix" description="Ini adalah website netflix" />
       <Articles title={article.title} description={article.body} />
-      {counter === 4 && <LimitArticle />}
-      <button onClick={prevArticle}>Next Article</button>
+      {/* {counter === 4 && <LimitArticle />}
+      <button onClick={() => prevArticle("Hello World")}>Prev Article</button>
       {counter}
-      <button onClick={nextArticle}>Next Article</button>
+      <button onClick={nextArticle}>Next Article</button> */}
     </main>
   );
 }
