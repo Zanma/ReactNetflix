@@ -1,16 +1,16 @@
 import "../App.css";
-import WebTitle from "../Components/WebTitle";
-import Articles from "../Components/Article";
-import useArticle from "../hooks/useArticle";
+import Layout from "../components/Layout";
+import { useAtom } from "jotai";
+import { languageAtom } from "../jotai/atoms";
 
 function Home() {
-  const { article } = useArticle()
+  const [language,] = useAtom(languageAtom)
+  console.log(language)
 
   return (
-    <main>
-      <WebTitle titleProp="Netflix" description="Ini adalah website netflix" />
-      <Articles title={article.title} description={article.body} />
-    </main>
+    <Layout>
+      <h3>{language === "en" ? "Watch Netflix Free!" : "Tonton Netflix Gratis"}</h3>
+    </Layout>
   );
 }
 

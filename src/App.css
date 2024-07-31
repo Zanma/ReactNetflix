@@ -5,3 +5,10 @@ h1 {
 article {
   background-color: crimson;
 }
+
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
