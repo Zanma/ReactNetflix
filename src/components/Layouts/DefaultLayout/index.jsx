@@ -1,7 +1,13 @@
 import React from "react";
+import Navbar from "../../../Pages/Landing/Navbar";
 
 const DefaultLayout = ({ children }) => {
-  return <div>{children}</div>;
+  return (
+    <div>
+      <Navbar />
+      {children}
+    </div>
+  );
 };
 
 export default DefaultLayout;

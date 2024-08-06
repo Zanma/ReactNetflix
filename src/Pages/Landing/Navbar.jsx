@@ -1,25 +1,23 @@
 import React from "react";
-import { useAtom } from "jotai";
-import { languageAtom } from "../jotai/atoms";
+import OptionLanguage from "../../components/Layouts/Modules/OptionLanguage";
+import DefaultButton from "../../components/Layouts/Modules/DefaultButton";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const [, setLanguage] = useAtom(languageAtom);
+  const navigate = useNavigate();
 
   return (
-    <div className="Navbar">
-      <h1>Netflix Clone</h1>
-      <div>
-        <button
-          className="btn btn-outline mr-2"
-          onClick={() => setLanguage("id")}
-        >
-          Indonesia
-        </button>
-        <button className="btn btn-outline" onClick={() => setLanguage("en")}>
-          English
-        </button>
-      </div>
-    </div>
+    <header>
+      <nav className="flex justify-between items-center pr-10 pl-7 py-4">
+        <div>
+          <img src="/netflix_logo.png" width={105} height={45} />
+        </div>
+        <div className="flex items-center gap-4">
+          <OptionLanguage />
+          <DefaultButton text={"Sign In"} onClick={() => navigate("/login")} />
+        </div>
+      </nav>
+    </header>
   );
 };
 
