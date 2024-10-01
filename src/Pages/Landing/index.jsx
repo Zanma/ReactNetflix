@@ -1,9 +1,10 @@
 import DefaultLayout from "../../components/Layouts/DefaultLayout";
+import Jumbotron from "../../components/Layouts/Modules/Jumbotron";
 
 function Landing() {
   return (
     <DefaultLayout>
-      <h1>Landing Page</h1>
+      <Jumbotron />
     </DefaultLayout>
   );
 }
