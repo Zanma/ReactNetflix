@@ -8,8 +8,6 @@ const OptionLanguage = () => {
   const [, setLanguage] = useAtom(languageAtom);
 
   const handleSelect = (event) => {
-    console.log("Clicked");
-
     setLanguage(event.target.value);
   };
 
